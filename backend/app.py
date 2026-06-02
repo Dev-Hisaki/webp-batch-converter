@@ -122,7 +122,7 @@ def convert_files():
                         zipf.write(f, f.name)
 
             # 6. Buat URL Download
-            download_url = f"http://127.0.0.1:5000/api/download/{final_file_name}"
+            download_url = f"{request.host_url}api/download/{final_file_name}"
 
             results.append({
                 'originalName': filename,
