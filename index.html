@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zip to Image Converter</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div id="home-view" class="view active">
+        <header>
+          <h1>WEBP Zip to Image Converter</h1>
+          <p>
+            Convert your zipped WEBP image archives to JPG or PNG instantly.
+          </p>
+        </header>
+
+        <div class="converter-box">
+          <div class="dropzone" id="dropzone">
+            <p>Drag & Drop your ZIP files here</p>
+            <p>or</p>
+            <label class="btn-browse">
+              Browse Files
+              <input
+                type="file"
+                id="file-input"
+                accept=".zip"
+                multiple
+                hidden
+              />
+            </label>
+            <div id="selected-files-list"></div>
+          </div>
+
+          <div class="controls">
+            <label for="output-type">Output Format:</label>
+            <select id="output-type">
+              <option value="JPG">JPG</option>
+              <option value="PNG">PNG</option>
+            </select>
+          </div>
+
+          <div class="controls-pdf">
+            <label class="checkbox-label">
+              <input type="checkbox" id="export-pdf" /> Export as pdf file(s)
+            </label>
+          </div>
+
+          <button id="btn-convert" class="btn-primary" disabled>Convert</button>
+        </div>
+        <div class="history-section">
+          <h3>Upload History</h3>
+          <ul id="history-list" class="item-list">
+            <li class="empty-state">No upload history yet.</li>
+          </ul>
+        </div>
+      </div>
+      <div id="process-view" class="view">
+        <div class="process-container">
+          <div class="spinner"></div>
+          <h2>Processing Files...</h2>
+          <p class="warning">⚠️ Please do not leave or refresh this page.</p>
+          <p>Waiting for server response.</p>
+        </div>
+      </div>
+      <div id="result-view" class="view">
+        <header>
+          <h1>Conversion Result</h1>
+        </header>
+
+        <div id="error-banner" class="error-banner hidden">
+          <strong>Error <span id="error-code"></span>:</strong> Some files could
+          not be processed completely.
+        </div>
+
+        <div class="result-section">
+          <ul id="result-list" class="item-list"></ul>
+        </div>
+
+        <div class="action-buttons">
+          <button id="btn-convert-again" class="btn-secondary">
+            Convert Again
+          </button>
+          <button id="btn-share" class="btn-secondary">Share Tool</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
