@@ -93,12 +93,15 @@ async function sendToServer(files, format, isExportPdf) {
 
   try {
     // 3. Eksekusi request ke backend Flask
-    const response = await fetch("http://127.0.0.1:5000/api/convert", {
-      method: "POST",
-      body: formData,
-      // PENTING: Jangan set header 'Content-Type' manual.
-      // Browser akan otomatis men-setnya dengan "boundary" yang tepat untuk FormData.
-    });
+    const response = await fetch(
+      "https://webp-batch-converter.onrender.com/api/convert",
+      {
+        method: "POST",
+        body: formData,
+        // PENTING: Jangan set header 'Content-Type' manual.
+        // Browser akan otomatis men-setnya dengan "boundary" yang tepat untuk FormData.
+      },
+    );
 
     const data = await response.json();
 
